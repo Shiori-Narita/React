@@ -1,5 +1,4 @@
 import React from "react";
-import logo from '../logo.svg';
 import '../App.css';
 
 export default class Formtext extends React.Component {
@@ -7,7 +6,6 @@ export default class Formtext extends React.Component {
         return (
             <div className="App">
               <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
                 <p>
                   Edit <code>src/App.js</code> and save to reload.
                 </p>
