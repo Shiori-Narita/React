@@ -70,7 +70,7 @@ export default function Formtext() {
       //...:スプレッド構文【反復可能な要素や関数呼び出しに展開することができる構文】
     if (e.target.value.length === 4 && zipcode.main.length === 3) {
       //右側に4文字入力できている、かつ左側に3文字入力できている場合→tryが実行される。
-      //try catchはワンセット。API関係などではほぼ使われる。tryで実行できないと判断されたものはcatchの実行へと移る。
+      //try catchはワンセット。API関係などではほぼ使われる。tryで実行したとしてもエラーを吐かれた場合catchの実行へと移る。
       //if elseだけではダメなのか？→APIはいつ更新されるか分からないエラーの宝庫のため、例外処理(try)を行っておく方がいい。
       try {
         const res = await axios.get(
@@ -79,6 +79,7 @@ export default function Formtext() {
             params: {
               zipcode: zipcode.main + e.target.value
             }
+            //params：パラメーター。今回はzipcpdeに zipcode.main + e.target.valueの条件と一致したものを抽出するという形になる。
           }
         );
         //上記URLより、入力された7桁に完全一致するもののデータを抽出する(get)
